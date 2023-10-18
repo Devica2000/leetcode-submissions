@@ -28,23 +28,23 @@ class Solution:
 
         # Time Complexity - O(n*mlogm)
 
-        # anagram_dict = {}
+        anagram_dict = {}
 
-        # for s in strs:
-        #     sorted_strs = ''.join(sorted(s))
-        #     if sorted_strs in anagram_dict:
-        #         anagram_dict[sorted_strs].append(s)
-        #     else:
-        #         anagram_dict[sorted_strs] = [s]
-        # return list(anagram_dict.values())
+        for s in strs:
+            sorted_strs = ''.join(sorted(s))
+            if sorted_strs in anagram_dict:
+                anagram_dict[sorted_strs].append(s)
+            else:
+                anagram_dict[sorted_strs] = [s]
+        return list(anagram_dict.values())
 
         #Time Complexity O(m*n*26)
 
-        result = defaultdict(list)
+        # result = defaultdict(list)
 
-        for s in strs:
-            count = [0] * 26
-            for c in s:
-                count[ord(c) - ord("a")] += 1
-            result[tuple(count)].append(s)
-        return list(result.values())
+        # for s in strs:
+        #     count = [0] * 26
+        #     for c in s:
+        #         count[ord(c) - ord("a")] += 1
+        #     result[tuple(count)].append(s)
+        # return list(result.values())
