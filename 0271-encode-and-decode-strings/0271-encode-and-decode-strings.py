@@ -22,8 +22,6 @@ class Codec:
             i = j + 1 + length
         return res
        
-
-
 # Your Codec object will be instantiated and called as such:
 # codec = Codec()
 # codec.decode(codec.encode(strs))
