@@ -31,10 +31,7 @@ class Solution:
         # # If all keys match, return True
         # return True
 
-        # if sorted(s) == sorted(t):
-        #     return True
-        # else:
-        #     return False
+        # return sorted(s) == sorted(t):
 
         # if Counter(s) == Counter(t):
         #     return True
@@ -42,16 +39,16 @@ class Solution:
         #     return False
 
 
-        if len(s) != len(t):
-            return False
+        # if len(s) != len(t):
+        #     return False
 
-        countS, countT = {}, {}
+        # countS, countT = {}, {}
 
-        #Use get to avoid key not found error
-        for i in range(len(s)):
-            countS[s[i]] = 1 + countS.get(s[i], 0)
-            countT[t[i]] = 1 + countT.get(t[i], 0)
-        for c in countS:
-            if countS[c] != countT.get(c, 0):
-                return False
-        return True
+        # #Use get to avoid key not found error
+        # for i in range(len(s)):
+        #     countS[s[i]] = 1 + countS.get(s[i], 0)
+        #     countT[t[i]] = 1 + countT.get(t[i], 0)
+        # for c in countS:
+        #     if countS[c] != countT.get(c, 0):
+        #         return False
+        # return True
