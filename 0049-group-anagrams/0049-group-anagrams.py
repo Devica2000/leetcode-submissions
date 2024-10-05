@@ -1,5 +1,29 @@
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        res = defaultdict(list)
+
+        for s in strs:
+            count = [0] * 26
+
+            for c in s:
+                count[ord(c) - ord("a")] += 1
+
+            res[tuple(count)].append(s)
+
+        return res.values()
+        
+
+
+
+
+
+
+
+
+
+
+
+
         # #Brute Force - O(n^2)
         # # Use sorting - sort the original list
         # # Compare the elements of the sorted list
