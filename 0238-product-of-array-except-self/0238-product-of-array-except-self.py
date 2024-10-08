@@ -1,52 +1,41 @@
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
-        # # O(n) time and O(1) space
-        # res = [1] * len(nums)
-        # prefix = 1
-        # for i in range(len(nums)):
-        #     res[i] = prefix
-        #     prefix *= nums[i]
+        # O(n) time and O(1) space
+        res = [1] * len(nums)
+        prefix = 1
+        for i in range(len(nums)):
+            res[i] = prefix
+            prefix *= nums[i]
 
-        # postfix = 1
-        # for i in range(len(nums) - 1, -1, -1):
-        #     res[i] *= postfix
-        #     postfix *= nums[i]
-
-        # return res
-
-        #O(n) time and space
-        n = len(nums)
-        if n == 0:
-            return []
-
-        prefix = [1] * n
-        postfix = [1] * n
-        res = [0] * n
-
-        # Calculate prefix products
-        for i in range(1, n):
-            prefix[i] = prefix[i - 1] * nums[i - 1]
-
-        # Calculate postfix products
-        for i in range(n - 2, -1, -1):
-            postfix[i] = postfix[i + 1] * nums[i + 1]
-
-        # Combine prefix and postfix products
-        for i in range(n):
-            res[i] = prefix[i] * postfix[i]
+        postfix = 1
+        for i in range(len(nums) - 1, -1, -1):
+            res[i] *= postfix
+            postfix *= nums[i]
 
         return res
 
+        # #O(n) time and space
+        # n = len(nums)
+        # if n == 0:
+        #     return []
 
+        # prefix = [1] * n
+        # postfix = [1] * n
+        # res = [0] * n
 
+        # # Calculate prefix products
+        # for i in range(1, n):
+        #     prefix[i] = prefix[i - 1] * nums[i - 1]
 
+        # # Calculate postfix products
+        # for i in range(n - 2, -1, -1):
+        #     postfix[i] = postfix[i + 1] * nums[i + 1]
 
+        # # Combine prefix and postfix products
+        # for i in range(n):
+        #     res[i] = prefix[i] * postfix[i]
 
-
-
-
-
-
+        # return res
 
 
         # O(n) time and O(1) space
