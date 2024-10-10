@@ -2,24 +2,31 @@ class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
         #Use a hash set to keep track of the unique numbers in nums
 
+        # numSet = set(nums)
+        # longest, length = 0, 0
+
+        # for num in numSet:
+        #     #check if this number is the start of a sequence
+        #     if (num - 1) not in numSet:
+        #         length = 1
+        #         while num + length in numSet:
+        #             length += 1
+        #     longest = max(longest, length)
+        # return longest
+
+        #Use a hash set to keep track of the unique numbers in nums
+
         numSet = set(nums)
-        longest, length = 0, 0
+        longest = 0
 
         for num in numSet:
             #check if this number is the start of a sequence
             if (num - 1) not in numSet:
-                length = 1
+                length = 0
                 while num + length in numSet:
                     length += 1
-            longest = max(longest, length)
+                longest = max(longest, length)
         return longest
-
-
-
-
-
-
-
 
 
 
@@ -35,17 +42,6 @@ class Solution:
                     current_length += 1
                 longest_length = max(longest_length, current_length)
         return longest_length
-
-
-
-
-
-
-
-
-
-
-
 
 
 
