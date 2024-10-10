@@ -1,5 +1,24 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
+        #Using built in python functions
+
+        newStr = ""
+
+        for c in s:
+            if c.isalnum():
+                newStr += c.lower()
+        return newStr == newStr[::-1]
+
+
+
+
+
+
+
+
+
+
+
         # Time Complexity = O(n)
         # Space Complexity - O(1)
         l = 0
@@ -21,6 +40,7 @@ class Solution:
         return ((ord('A') <= ord(c) <= ord('Z')) or 
         (ord('a') <= ord(c) <= ord('z')) or
         (ord('0') <= ord(c) <= ord('9')))
+
         # Reverse a string
         # # Time and space Complexity = O(n)
         # new_str = ""
