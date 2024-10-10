@@ -1,5 +1,29 @@
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
+        #Use a hash set to keep track of the unique numbers in nums
+
+        numSet = set(nums)
+        longest, length = 0, 0
+
+        for num in numSet:
+            #check if this number is the start of a sequence
+            if (num - 1) not in numSet:
+                length = 1
+                while num + length in numSet:
+                    length += 1
+            longest = max(longest, length)
+        return longest
+
+
+
+
+
+
+
+
+
+
+
         num_set = set(nums)
         longest_length = 0
         for num in num_set:
