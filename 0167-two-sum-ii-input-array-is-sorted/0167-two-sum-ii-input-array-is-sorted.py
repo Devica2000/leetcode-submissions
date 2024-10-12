@@ -14,6 +14,17 @@ class Solution:
                 return [l+1, r+1]
         return
 
+        #A little optimized brute force
+        for i in range(len(numbers)):
+            for j in range(i+1, len(numbers)):
+                current_sum = numbers[i] + numbers[j]
+                if current_sum == target:
+                    return [i+1, j+1]
+                elif current_sum > target:
+                    # No need to check further in this inner loop
+                    break
+        return
+
 
         #Brute force - O(n^2)
         for i in range(len(numbers)):
