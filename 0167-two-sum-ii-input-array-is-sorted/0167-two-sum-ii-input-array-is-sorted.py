@@ -1,23 +1,25 @@
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        #Two Pointer - O(n)
         l = 0
         r = len(numbers) - 1
 
-        while l < r:
-            if numbers[l] + numbers[r] > target:
+        while l<r:
+            currSum = numbers[l] + numbers[r]
+            if currSum > target:
                 r -= 1
-            elif numbers[l] + numbers[r] < target:
+            elif currSum < target:
                 l += 1
             else:
-                return [l + 1,r + 1]
+                return [l+1, r+1]
+        return
 
 
-        # numIndex = {}
-        # for idx, num in enumerate(numbers):
-        #     diff = target - num
-        #     if diff in numIndex:
-        #         return([numIndex[diff] + 1, idx + 1])
-        #     numIndex[num] = idx
-        # return 0
+        #Brute force - O(n^2)
+        for i in range(len(numbers)):
+            for j in range(i+1, len(numbers)):
+                if numbers[i] + numbers[j] == target:
+                    return [i+1, j+1]
+        return
 
- 
+        
