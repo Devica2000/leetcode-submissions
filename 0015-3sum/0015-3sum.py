@@ -1,5 +1,6 @@
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
+        #O(nlogn) + O(n^2) = O(n^2)
         res = []
         nums.sort()
 
@@ -27,7 +28,7 @@ class Solution:
 
 
 
-
+        #Brute Force - O(n^3)
         output = set()
         for i in range(len(nums)):
             for j in range(i+1, len(nums)):
