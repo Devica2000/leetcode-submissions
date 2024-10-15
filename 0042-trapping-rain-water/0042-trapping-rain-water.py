@@ -1,22 +1,92 @@
 class Solution:
     def trap(self, height: List[int]) -> int:
-        # O(n) time and O(1) space
-        if not height: return 0
-
-        l, r = 0, len(height) - 1
-        leftMax, rightMax = height[l], height[r]
+        max_left = 0
+        max_right = 0
+        leftmax = []
+        rightmax = []
         res = 0
 
-        while l < r:
-            if leftMax < rightMax:
-                l += 1
-                leftMax = max(leftMax, height[l])
-                res += leftMax - height[l]
+        for l in range(len(height)):
+            leftmax.append(max_left)
+            max_left = max(max_left, height[l])
+
+        for r in range(len(height) -1, -1, -1):
+            rightmax.append(max_right)
+            max_right = max(max_right, height[r])  
+
+        rightmax = rightmax[::-1]
+
+        for i in range(len(height)):
+            trapped_water = min(leftmax[i], rightmax[i]) - height[i]
+            if trapped_water < 0:
+                continue
             else:
-                r -= 1
-                rightMax = max(rightMax, height[r])
-                res += rightMax - height[r]
-        return res
+                res += trapped_water
+
+
+
+
+
+
+
+
+
+
+
+
+
+        # Using O(n) time and space
+
+        if not height: return 0
+
+        maxL = 0
+        maxR = 0
+        maxLeft = []
+        maxRight = []
+        minList = []
+        output = 0
+
+        for i in range(len(height)):
+            maxL = max(maxL, height[i])
+            maxLeft.append(maxL)
+
+        for i in range(len(height) - 1, -1, -1):
+            maxR = max(maxR, height[i])
+            maxRight.append(maxR)
+
+        maxRight.reverse()
+
+        for i in range(len(maxLeft)):
+            minval = min(maxLeft[i], maxRight[i])
+            minList.append(minval)
+        
+        for i in range(len(minList)):
+            res = minList[i] - height[i]
+            if res < 0:
+                res = 0
+            output += res
+        return output
+            
+
+
+        # O(n) time and constant O(1) space
+        # Optimization using two pointers
+        # if not height: return 0
+
+        # l, r = 0, len(height) - 1
+        # leftMax, rightMax = height[l], height[r]
+        # res = 0
+
+        # while l < r:
+        #     if leftMax < rightMax:
+        #         l += 1
+        #         leftMax = max(leftMax, height[l])
+        #         res += leftMax - height[l]
+        #     else:
+        #         r -= 1
+        #         rightMax = max(rightMax, height[r])
+        #         res += rightMax - height[r]
+        # return res
 
 
         # O(n) & O(1) - Does not work
