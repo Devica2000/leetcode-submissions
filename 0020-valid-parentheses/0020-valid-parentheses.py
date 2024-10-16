@@ -1,5 +1,39 @@
 class Solution:
     def isValid(self, s: str) -> bool:
+        mapping = {']':'[', '}':'{', ')':'('}
+        stack = []
+
+        for c in s:
+            #if paranthesis is a key in the dict mapping
+            if c in mapping:
+                #make sure the stack is NOT empty
+                #the stack cannot start with a close paranthesis
+                #the last element is the matching value
+                if stack and stack[-1] == mapping[c]:
+                    stack.pop()
+                else:
+                    return False
+            else:
+                stack.append(c)
+
+        #can be condensed into 1 line
+        #return True if not stack else False        
+        if not stack:
+            return True
+        else:
+            return False
+
+
+
+
+
+
+
+
+
+
+
+
         valid = {')' : '(', '}' : '{', ']': '['}
         stack = []
         for c in s:
