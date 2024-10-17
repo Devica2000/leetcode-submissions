@@ -1,29 +1,30 @@
 class MinStack:
 
     def __init__(self):
-        #defining two stack using array
-        # a main stack and a min stack
+        #initializing the two stacks
         self.stack = []
-        self.minstack = []
+        self.minStack = []
 
     def push(self, val: int) -> None:
+        #use built in function to add element to the main stack
         self.stack.append(val)
-        # we need to keep the min(value in minstack, val) in the minstack
-        val = min(val, self.minstack[-1] if self.minstack else val)
-        self.minstack.append(val)
+        #append to minstack if it is empty
+        #otherwise append the min value of val, top of stack
+        if self.minStack:
+            val = min(val, self.minStack[-1])
+            self.minStack.append(val)
+        else:
+            self.minStack.append(val)
         
     def pop(self) -> None:
         self.stack.pop()
-        self.minstack.pop()
+        self.minStack.pop()
         
     def top(self) -> int:
-        # function only called when the stack is non empty
         return self.stack[-1]
-
+    
     def getMin(self) -> int:
-        # function only called when the stack is non empty
-        return self.minstack[-1]
-
+        return self.minStack[-1]
         
 
 
