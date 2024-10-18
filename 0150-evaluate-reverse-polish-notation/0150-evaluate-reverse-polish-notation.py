@@ -1,5 +1,39 @@
 class Solution:
     def evalRPN(self, tokens: List[str]) -> int:
+        #O(n)
+
+        stack = []
+        for c in tokens:
+            if c == "+":
+                stack.append(stack.pop() + stack.pop())
+            elif c == "-":
+                a, b = stack.pop(), stack.pop()
+                #we need to maintain the order in 
+                #which the elements were added to the stack
+                stack.append(b-a)
+            elif c == "*":
+                stack.append(stack.pop() * stack.pop())
+            elif c == "/":
+                a, b = stack.pop(), stack.pop()
+                stack.append(int(b/a))
+            else:
+                stack.append(int(c))
+        
+        return stack[-1]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         #use a stack
         #reading from L to R
         stack = []
