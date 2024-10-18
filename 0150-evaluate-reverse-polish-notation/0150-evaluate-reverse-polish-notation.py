@@ -19,7 +19,7 @@ class Solution:
             else:
                 stack.append(int(c))
         
-        return stack[-1]
+        return stack[0]
 
 
 
