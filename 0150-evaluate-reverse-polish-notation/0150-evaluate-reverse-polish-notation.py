@@ -15,8 +15,12 @@ class Solution:
                 stack.append(stack.pop() * stack.pop())
             elif c == "/":
                 a, b = stack.pop(), stack.pop()
+                #use int to convert to an integer
+                #and round to 0 at the same time
                 stack.append(int(b/a))
             else:
+                #we need to convert characters to interger
+                #before performing operations
                 stack.append(int(c))
         
         return stack[0]
