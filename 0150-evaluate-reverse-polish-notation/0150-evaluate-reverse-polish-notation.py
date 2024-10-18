@@ -22,8 +22,9 @@ class Solution:
                 #we need to convert characters to interger
                 #before performing operations
                 stack.append(int(c))
-        
-        return stack[0]
+                
+        #return stack[0]
+        return stack[-1]
 
 
 
