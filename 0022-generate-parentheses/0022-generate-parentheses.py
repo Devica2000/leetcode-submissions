@@ -25,14 +25,6 @@ class Solution:
         backtracking(0,0)
         return res
 
-
-
-
-
-
-
-
-
         #use backtracking
 
         stack = []
