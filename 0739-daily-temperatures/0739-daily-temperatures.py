@@ -5,10 +5,10 @@ class Solution:
 
         for i,t in enumerate(temperatures):
             #check if the stack is non empty
-            while stack and t > stack[-1][0]:
-                stackT, stackIdx = stack.pop()
+            while stack and t > stack[-1][1]:
+                stackIdx, stackT = stack.pop()
                 res[stackIdx] = (i - stackIdx)
-            stack.append([t, i])
+            stack.append([i,t])
         res
         
 
