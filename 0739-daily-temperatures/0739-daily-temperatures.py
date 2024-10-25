@@ -1,5 +1,28 @@
 class Solution:
     def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
+        res = [0] * len(temperatures)
+        stack = [] #pair:[temp, index]
+
+        for i,t in enumerate(temperatures):
+            #check if the stack is non empty
+            while stack and t > stack[-1][0]:
+                stackT, stackIdx = stack.pop()
+                res[stackIdx] = (i - stackIdx)
+            stack.append([t, i])
+        res
+        
+
+
+
+
+
+
+
+
+
+
+
+
         # O(n) time and space complexity
         # result - to store the wait days at ith position
         # stack - to add pair of temp, idx from temperatures
