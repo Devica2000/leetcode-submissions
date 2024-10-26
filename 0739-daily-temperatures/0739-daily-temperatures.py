@@ -1,5 +1,6 @@
 class Solution:
     def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
+        #O(n)
         res = [0] * len(temperatures)
         stack = [] #pair:[temp, index]
 
@@ -9,18 +10,16 @@ class Solution:
                 stackIdx, stackT = stack.pop()
                 res[stackIdx] = (i - stackIdx)
             stack.append([i,t])
-        res
-        
+        return res
 
-
-
-
-
-
-
-
-
-
+        #brute force - Time limit exceeded
+        result = [0] * len(temperatures)
+        for i in range(len(temperatures)):
+            for j in range(i+1, len(temperatures)):
+                if temperatures[j] > temperatures[i]:
+                    result[i] = j - i
+                    break
+        return result
 
 
         # O(n) time and space complexity
