@@ -3,11 +3,10 @@ class Solution:
         l, r = 0, len(nums) - 1
 
         while l <= r:
-            if target == nums[l]:
-                return l
-            elif target == nums[r]:
-                return r
-            elif target > nums[l]:
+            m = (l + r)//2
+            if target == nums[m]:
+                return m 
+            elif target > nums[m]:
                 l += 1
             else:
                 r -= 1
