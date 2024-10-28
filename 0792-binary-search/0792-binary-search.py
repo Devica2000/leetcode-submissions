@@ -4,20 +4,13 @@ class Solution:
 
         while l <= r:
             m = (l + r)//2
-            if target == nums[m]:
-                return m 
-            elif target > nums[m]:
+            if nums[m] > target:
+                r = m - 1
+            elif nums[m] < target:
                 l = m + 1
             else:
-                r = m - 1
+                return m
         return -1
-
-
-
-
-
-
-
 
 
 
