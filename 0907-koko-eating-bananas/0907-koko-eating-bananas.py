@@ -1,5 +1,16 @@
 class Solution:
     def minEatingSpeed(self, piles: List[int], h: int) -> int:
+
+
+
+
+
+
+
+
+
+
+        
         #Time Complexity = O(log(max p) * p)
         #Given: len(piles) <= h  
         #Koko only eats at most 1 pile of bananas in 1 hour
