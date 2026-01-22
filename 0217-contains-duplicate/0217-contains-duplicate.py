@@ -1,6 +1,33 @@
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
+        num_count = {}
+
+        for num in nums:
+            if num in num_count:
+                return True
+            else:
+                num_count[num] = True
+        return False
+
+
+
         return len(nums) != len(set(nums))
+
+        #using a hashmap
+        count_nums = {}
+        for n in nums:
+            if n in count_nums:
+                count_nums[n] += 1
+            else:
+                count_nums[n] = 1
+        
+        for val in count_nums.values():
+            if val > 1:
+                return True
+        return False
+            
+
+
         
 
 
