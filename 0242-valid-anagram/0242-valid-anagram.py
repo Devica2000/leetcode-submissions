@@ -1,5 +1,52 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
+        dict_s = {}
+        dict_t = {}
+
+        for char_s in s:
+            if char_s not in dict_s:
+                dict_s[char_s] = 1
+            dict_s[char_s] += 1
+
+        for char_t in t:
+            if char_t not in dict_t:
+                dict_t[char_t] = 1
+            dict_t[char_t] += 1
+
+        if dict_s == dict_t:
+            return True
+        
+        return False
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         if len(s) != len(t):
             return False
