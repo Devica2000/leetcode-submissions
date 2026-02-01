@@ -1,28 +1,30 @@
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        res = defaultdict(list)
+        dict_count = defaultdict(list) #mapping char count to values in strs
 
         for s in strs:
+            #create a list of length 26 for char count
             count = [0] * 26
 
             for c in s:
                 count[ord(c) - ord("a")] += 1
+            
+            dict_count[tuple(count)].append(s)
 
-            res[tuple(count)].append(s)
-
-        return res.values()
-        
-
+        return list(dict_count.values())
 
 
+        # res = defaultdict(list)
 
+        # for s in strs:
+        #     count = [0] * 26
 
+        #     for c in s:
+        #         count[ord(c) - ord("a")] += 1
 
+        #     res[tuple(count)].append(s)
 
-
-
-
-
+        # return res.values()
 
         # #Brute Force - O(n^2)
         # # Use sorting - sort the original list
