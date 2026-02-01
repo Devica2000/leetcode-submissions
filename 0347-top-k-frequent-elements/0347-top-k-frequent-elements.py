@@ -1,6 +1,44 @@
 class Solution:
     import heapq
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        dict_count = {}
+        for num in nums: 
+            if num in dict_count:
+                dict_count[num] += 1
+            else:
+                dict_count[num] = 1
+        
+        sorted_dict_count = dict(sorted(dict_count.items(), key=lambda item: item[1], reverse = True))
+        return list(sorted_dict_count.keys())[:k]
+
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         #Using Bucket Sort
 
         count = {}
