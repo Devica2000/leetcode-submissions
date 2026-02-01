@@ -1,15 +1,33 @@
 class Solution:
     import heapq
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        dict_count = {}
-        for num in nums: 
-            if num in dict_count:
-                dict_count[num] += 1
-            else:
-                dict_count[num] = 1
+        #using a modification of bucket sort
+
+        num_counts = {}
+        freq = [[] for i in range(len(nums) + 1)]
+
+        for num in nums:
+            num_counts[num] = 1 + num_counts.get(num, 0)
+        for num, count in num_counts.items():
+            freq[count].append(num)
+
+        res = []
+        for i in range(len(freq) - 1, 0, -1):
+            for n in freq[i]:
+                res.append(n)
+                if len(res) == k:
+                    return res
+
+
+        # dict_count = {}
+        # for num in nums: 
+        #     if num in dict_count:
+        #         dict_count[num] += 1
+        #     else:
+        #         dict_count[num] = 1
         
-        sorted_dict_count = dict(sorted(dict_count.items(), key=lambda item: item[1], reverse = True))
-        return list(sorted_dict_count.keys())[:k]
+        # sorted_dict_count = dict(sorted(dict_count.items(), key=lambda item: item[1], reverse = True))
+        # return list(sorted_dict_count.keys())[:k]
 
         
         
