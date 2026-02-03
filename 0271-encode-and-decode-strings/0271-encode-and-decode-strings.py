@@ -8,6 +8,7 @@ class Codec:
 
     def decode(self, s:str) -> List[str]:
         res = []
+        i = 0
 
         while i < len(s):
             j = i
