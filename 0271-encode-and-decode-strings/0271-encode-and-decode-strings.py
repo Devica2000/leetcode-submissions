@@ -11,12 +11,12 @@ class Codec:
 
         while i < len(s):
             j = i
-            if s[j] != "#":
+            while s[j] != "#":
                 j += 1
-            else:
-                length = int(s[i:j])
-                res.append(s[j+1:j+1+length])
-                i = j + 1 + length
+
+            length = s[i:j]
+            res.append(s[j + 1: j + 1 + length])
+            i = j + 1 + length
 
         return res
 
