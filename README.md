@@ -141,4 +141,8 @@ This repo contains my leetcode submissions.
 |  |
 | ------- |
 | [0022-generate-parentheses](https://github.com/Devica2000/leetcode-submissions/tree/master/0022-generate-parentheses) |
+## Union-Find
+|  |
+| ------- |
+| [0128-longest-consecutive-sequence](https://github.com/Devica2000/leetcode-submissions/tree/master/0128-longest-consecutive-sequence) |
 <!---LeetCode Topics End-->
