@@ -16,10 +16,8 @@ class Solution:
 
     def alnum(self, c):
         return ((ord('A') <= ord(c) <= ord('Z')) or
-                (ord(0) <= ord(c) <= ord(9)))
-
-
-
+                (ord('a') <= ord(c) <= ord('z'))
+                (ord('0') <= ord(c) <= ord('9')))
 
 
         newStr = ""
