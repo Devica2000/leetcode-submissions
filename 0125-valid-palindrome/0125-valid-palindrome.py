@@ -1,5 +1,48 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
+        s_new = ''.join(filter(str.isalnum, s)).lower()
+        # print(s_new)
+
+        if s == " ":
+            return True
+
+        str_1 = ""
+        for i in range(len(s_new) - 1, -1, -1):
+            str_1 += s_new[i]
+
+        if s_new == str_1:
+            return True
+        else:
+            return False
+
+
+        # start = 0
+        # end = len(s_new) - 1
+
+        # for i in range(len(s_new)):
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         #Using two pointer approcach and a custom helper function
         l = 0
         r = len(s) - 1
