@@ -1,5 +1,64 @@
 class Solution:
     def maxArea(self, height: List[int]) -> int:
+        area = 0 
+        l = 0
+        r = len(height) - 1
+
+        while l < r:
+            max_area = (r - l) * min(height[l], height[r])
+            area = max(area, max_area)
+            if height[l] < height[r]:
+                l += 1
+            else:
+                 r -= 1
+        
+        return area
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        area = 0
+
+        for i in range(len(height)):
+            for j in range(i+1, len(height)):
+                length = j - i
+                breadth = min(height[i], height[j])
+                new_area = length * breadth
+                area = max(area, new_area)
+        return area
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         #linear time - O(n)
         max_area = 0
         l, r = 0, len(height) - 1
@@ -7,6 +66,7 @@ class Solution:
         while l<r:
             area = (r-l) * min(height[l], height[r])
             max_area = max(max_area, area)
+            #can condense r-=1 consitions into just one else statement
             if height[l] > height[r]:
                 r -= 1
             elif height[r] > height[l]:
